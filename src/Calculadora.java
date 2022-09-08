@@ -121,6 +121,11 @@ public class Calculadora extends javax.swing.JFrame {
 
         btnDiv.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnDiv.setText("/");
+        btnDiv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivActionPerformed(evt);
+            }
+        });
 
         btnBorrar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnBorrar.setText("C");
@@ -209,6 +214,14 @@ public class Calculadora extends javax.swing.JFrame {
         
         txtResul.setText(String.valueOf(num1 * num2));
     }//GEN-LAST:event_btnMultiActionPerformed
+
+    private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
+        // TODO add your handling code here:
+        double num1= Double.parseDouble(txtNum1.getText());
+        double num2= Double.parseDouble(txtNum2.getText());
+        
+        txtResul.setText(String.valueOf(num1 / num2));
+    }//GEN-LAST:event_btnDivActionPerformed
 
     /**
      * @param args the command line arguments
