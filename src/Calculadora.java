@@ -178,6 +178,10 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
         // TODO add your handling code here:
+        double num1= Double.parseDouble(txtNum1.getText());
+        double num2= Double.parseDouble(txtNum2.getText());
+        
+        txtResul.setText(String.valueOf(num1 + num2));
     }//GEN-LAST:event_btnSumaActionPerformed
 
     /**
