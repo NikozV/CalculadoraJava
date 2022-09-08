@@ -131,9 +131,19 @@ public class Calculadora extends javax.swing.JFrame {
 
         btnRaizCubica.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnRaizCubica.setText("√3");
+        btnRaizCubica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRaizCubicaActionPerformed(evt);
+            }
+        });
 
         btnRaizCuadrada.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnRaizCuadrada.setText("√2");
+        btnRaizCuadrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRaizCuadradaActionPerformed(evt);
+            }
+        });
 
         btnDiv1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnDiv1.setText("Factorial");
@@ -250,9 +260,24 @@ public class Calculadora extends javax.swing.JFrame {
             factorial *=x;
             x--;
             txtResul.setText(String.valueOf(factorial));
-
         }
     }//GEN-LAST:event_btnDiv1ActionPerformed
+
+    private void btnRaizCubicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaizCubicaActionPerformed
+        // TODO add your handling code here:
+        double x = Double.parseDouble(txtNum1.getText());
+        double raiz;
+        raiz = Math.cbrt(x);
+        txtResul.setText(String.valueOf(raiz));
+    }//GEN-LAST:event_btnRaizCubicaActionPerformed
+
+    private void btnRaizCuadradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaizCuadradaActionPerformed
+        // TODO add your handling code here:
+        double x = Double.parseDouble(txtNum1.getText());
+        double raiz;
+        raiz = Math.sqrt(x);
+        txtResul.setText(String.valueOf(raiz));
+    }//GEN-LAST:event_btnRaizCuadradaActionPerformed
 
     /**
      * @param args the command line arguments
