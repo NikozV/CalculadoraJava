@@ -38,7 +38,9 @@ public class Calculadora extends javax.swing.JFrame {
         btnResta = new javax.swing.JButton();
         btnMulti = new javax.swing.JButton();
         btnDiv = new javax.swing.JButton();
-        btnBorrar = new javax.swing.JButton();
+        btnRaizCubica = new javax.swing.JButton();
+        btnRaizCuadrada = new javax.swing.JButton();
+        btnDiv1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,7 +76,7 @@ public class Calculadora extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(22, 22, 22)
-                .addComponent(txtNum1, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(txtNum1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
@@ -127,8 +129,19 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
 
-        btnBorrar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnBorrar.setText("C");
+        btnRaizCubica.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnRaizCubica.setText("√3");
+
+        btnRaizCuadrada.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnRaizCuadrada.setText("√2");
+
+        btnDiv1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnDiv1.setText("Factorial");
+        btnDiv1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDiv1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -136,17 +149,22 @@ public class Calculadora extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBorrar)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnMulti)
                         .addGap(18, 18, 18)
-                        .addComponent(btnDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDiv1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnSuma)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnResta, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnResta, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRaizCuadrada)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRaizCubica)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,14 +172,15 @@ public class Calculadora extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSuma)
-                    .addComponent(btnResta))
+                    .addComponent(btnResta)
+                    .addComponent(btnRaizCuadrada)
+                    .addComponent(btnRaizCubica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMulti)
-                    .addComponent(btnDiv))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBorrar)
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(btnDiv)
+                    .addComponent(btnDiv1))
+                .addGap(89, 89, 89))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,6 +242,18 @@ public class Calculadora extends javax.swing.JFrame {
         txtResul.setText(String.valueOf(num1 / num2));
     }//GEN-LAST:event_btnDivActionPerformed
 
+    private void btnDiv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiv1ActionPerformed
+        // TODO add your handling code here:
+        int x = Integer.valueOf(txtNum1.getText());
+        int factorial =1;
+        while (x !=0){
+            factorial *=x;
+            x--;
+            txtResul.setText(String.valueOf(factorial));
+
+        }
+    }//GEN-LAST:event_btnDiv1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,9 +290,11 @@ public class Calculadora extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnDiv;
+    private javax.swing.JButton btnDiv1;
     private javax.swing.JButton btnMulti;
+    private javax.swing.JButton btnRaizCuadrada;
+    private javax.swing.JButton btnRaizCubica;
     private javax.swing.JButton btnResta;
     private javax.swing.JButton btnSuma;
     private javax.swing.JLabel jLabel1;
